@@ -19,7 +19,7 @@ public struct Stack<A> {
 extension Stack: CustomStringConvertible {
     public var description: String {
         var string = "Stack {\n"
-        let elementDescriptions = _array.map({ "\t\($0),\n" })
+        let elementDescriptions = _array.reversed().map({ "\t\($0),\n" })
         for elementDescription in elementDescriptions {
             string += elementDescription
         }
