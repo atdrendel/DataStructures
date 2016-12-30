@@ -1,6 +1,8 @@
 public struct Stack<A> {
     fileprivate var _array = Array<A>()
 
+    public init() { }
+
     public var count: Int { return _array.count }
 
     public mutating func push(_ element: A) {
