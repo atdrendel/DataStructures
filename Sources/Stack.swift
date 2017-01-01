@@ -16,6 +16,10 @@ public struct Stack<A> {
     public mutating func pop() -> A? {
         return _array.popLast()
     }
+
+    public func forEach(_ body: (A) throws -> Void) rethrows -> Void {
+        try _array.forEach(body)
+    }
 }
 
 extension Stack: CustomStringConvertible {
