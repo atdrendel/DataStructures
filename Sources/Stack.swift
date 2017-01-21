@@ -3,6 +3,10 @@ public struct Stack<A> {
 
     public init() { }
 
+    public init(_ element: A) {
+        push(element)
+    }
+
     public var count: Int { return _array.count }
 
     public mutating func push(_ element: A) {
@@ -13,7 +17,7 @@ public struct Stack<A> {
         return _array.last
     }
 
-    public mutating func pop() -> A? {
+    @discardableResult public mutating func pop() -> A? {
         return _array.popLast()
     }
 

@@ -5,8 +5,11 @@ class StackTests: XCTestCase {
     static var allTests : [(String, (StackTests) -> () throws -> Void)] {
         return [
             ("testInit", testInit),
+            ("testInitWithElement", testInitWithElement),
             ("testPushAndPopInts", testPushAndPopInts),
             ("testPushAndPopStrings", testPushAndPopStrings),
+            ("testForEach", testForEach),
+            ("testForEachThrows", testForEachThrows),
             ("testDescription", testDescription),
         ]
     }
@@ -17,6 +20,14 @@ class StackTests: XCTestCase {
         XCTAssertEqual(0, stack.count)
         XCTAssertNil(stack.peek())
         XCTAssertNil(stack.pop())
+    }
+
+    func testInitWithElement() {
+        let value = 123
+        let stack = Stack(value)
+        XCTAssertNotNil(stack)
+        XCTAssertEqual(1, stack.count)
+        XCTAssertEqual(value, stack.peek())
     }
 
     func testPushAndPopInts() {
