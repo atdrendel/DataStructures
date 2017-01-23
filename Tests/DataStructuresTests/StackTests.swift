@@ -125,6 +125,62 @@ class StackTests: XCTestCase {
         XCTAssertEqual(0, two.value)
     }
 
+    func testForEachUsesReversedOrder() {
+        struct Object {
+            let value: Int
+
+            static func == (lhs: Object, rhs: Object) -> Bool {
+                return lhs.value == rhs.value
+            }
+        }
+
+        let first = Object(value: 2)
+        let second = Object(value: 1)
+        let third = Object(value: 0)
+
+        var stack = Stack<Object>()
+        stack.push(first)
+        stack.push(second)
+        stack.push(third)
+
+        var index = 0
+        stack.forEach { (object) in
+            XCTAssertEqual(index, object.value)
+            index += 1
+        }
+    }
+
+    func testElementWhere() {
+        class Object {
+            let value: Int
+
+            init(value: Int) {
+                self.value = value
+            }
+
+            static func == (lhs: Object, rhs: Object) -> Bool {
+                return lhs.value == rhs.value
+            }
+        }
+
+        let first = Object(value: 1)
+        let second = Object(value: 1)
+        let third = Object(value: 2)
+
+        var stack = Stack<Object>()
+        stack.push(first)
+        stack.push(second)
+        stack.push(third)
+
+        let element = stack.element { (element) -> Bool in
+            element.value == 1
+        }
+
+        XCTAssertNotNil(element)
+        XCTAssertTrue(element! === second)
+        XCTAssertTrue(element! !== first) // Make sure the test happens in reverse order
+    }
+
     func testDescription() {
         var stack = Stack<String>()
         stack.push("1")

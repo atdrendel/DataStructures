@@ -22,7 +22,14 @@ public struct Stack<A> {
     }
 
     public func forEach(_ body: (A) throws -> Void) rethrows -> Void {
-        try _array.forEach(body)
+        try _array.reversed().forEach(body)
+    }
+
+    public func element(where test: ((A) -> Bool)) -> A? {
+        for element in _array.reversed() {
+            if test(element) { return element }
+        }
+        return nil
     }
 }
 
