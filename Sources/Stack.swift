@@ -34,7 +34,7 @@ public struct Stack<A> {
 }
 
 extension Stack where A: Equatable {
-    static func == (lhs: Stack<A>, rhs: Stack<A>) -> Bool {
+    public static func == (lhs: Stack<A>, rhs: Stack<A>) -> Bool {
         return lhs._array == rhs._array
     }
 }
