@@ -33,6 +33,12 @@ public struct Stack<A> {
     }
 }
 
+extension Stack where A: Equatable {
+    static func == (lhs: Stack<A>, rhs: Stack<A>) -> Bool {
+        return lhs._array == rhs._array
+    }
+}
+
 extension Stack: CustomStringConvertible {
     public var description: String {
         var string = "Stack {\n"

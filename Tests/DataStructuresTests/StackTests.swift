@@ -10,6 +10,9 @@ class StackTests: XCTestCase {
             ("testPushAndPopStrings", testPushAndPopStrings),
             ("testForEach", testForEach),
             ("testForEachThrows", testForEachThrows),
+            ("testForEachUsesReversedOrder", testForEachUsesReversedOrder),
+            ("testElementWhere", testElementWhere),
+            ("testStacksWithEquatableElementsAreEquatable", testStacksWithEquatableElementsAreEquatable),
             ("testDescription", testDescription),
         ]
     }
@@ -179,6 +182,20 @@ class StackTests: XCTestCase {
         XCTAssertNotNil(element)
         XCTAssertTrue(element! === second)
         XCTAssertTrue(element! !== first) // Make sure the test happens in reverse order
+    }
+
+    func testStacksWithEquatableElementsAreEquatable() {
+        var target = Stack<Int>()
+        target.push(1)
+        target.push(2)
+        target.push(3)
+
+        let equal = target
+        XCTAssertTrue(target == equal)
+
+        var notEqual = target
+        notEqual.pop()
+        XCTAssertFalse(target == notEqual)
     }
 
     func testDescription() {
