@@ -13,6 +13,11 @@ public struct Stack<A> {
         _array.append(element)
     }
 
+    public mutating func replace(at index: Int, with element: A) {
+        guard index >= 0 && index < _array.count else { return }
+        _array[index] = element
+    }
+
     public func peekAtTop() -> A? {
         return peek(at: _array.count - 1)
     }

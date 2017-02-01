@@ -8,6 +8,7 @@ class StackTests: XCTestCase {
             ("testInitWithElement", testInitWithElement),
             ("testPushAndPopInts", testPushAndPopInts),
             ("testPushAndPopStrings", testPushAndPopStrings),
+            ("testReplace", testReplace),
             ("testForEach", testForEach),
             ("testForEachThrows", testForEachThrows),
             ("testForEachUsesReversedOrder", testForEachUsesReversedOrder),
@@ -91,6 +92,21 @@ class StackTests: XCTestCase {
 
         XCTAssertNil(stack.pop())
         XCTAssertNil(stack.peekAtTop())
+    }
+
+    func testReplace() {
+        var stack = Stack<Int>()
+
+        stack.push(1)
+        stack.push(2)
+        stack.push(3)
+
+        stack.replace(at: 1, with: 10)
+
+        XCTAssertEqual(3, stack.count)
+        XCTAssertEqual(1, stack.peek(at: 0))
+        XCTAssertEqual(10, stack.peek(at: 1))
+        XCTAssertEqual(3, stack.peek(at: 2))
     }
 
     func testForEach() {
