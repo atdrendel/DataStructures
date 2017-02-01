@@ -21,7 +21,9 @@ class StackTests: XCTestCase {
         var stack = Stack<Int>()
         XCTAssertNotNil(stack)
         XCTAssertEqual(0, stack.count)
-        XCTAssertNil(stack.peek())
+        XCTAssertNil(stack.peekAtTop())
+        XCTAssertNil(stack.peekAtBottom())
+        XCTAssertNil(stack.peek(at: 0))
         XCTAssertNil(stack.pop())
     }
 
@@ -30,7 +32,9 @@ class StackTests: XCTestCase {
         let stack = Stack(value)
         XCTAssertNotNil(stack)
         XCTAssertEqual(1, stack.count)
-        XCTAssertEqual(value, stack.peek())
+        XCTAssertEqual(value, stack.peekAtTop())
+        XCTAssertEqual(value, stack.peekAtBottom())
+        XCTAssertEqual(value, stack.peek(at: 0))
     }
 
     func testPushAndPopInts() {
@@ -39,22 +43,30 @@ class StackTests: XCTestCase {
 
         stack.push(1)
         XCTAssertEqual(1, stack.count)
-        XCTAssertEqual(1, stack.peek()!)
+        XCTAssertEqual(1, stack.peekAtTop()!)
+        XCTAssertEqual(1, stack.peekAtBottom()!)
+        XCTAssertEqual(1, stack.peek(at: 0))
 
         stack.push(2)
         XCTAssertEqual(2, stack.count)
-        XCTAssertEqual(2, stack.peek()!)
+        XCTAssertEqual(2, stack.peekAtTop()!)
+        XCTAssertEqual(1, stack.peekAtBottom()!)
+        XCTAssertEqual(2, stack.peek(at: 1))
 
         XCTAssertEqual(2, stack.pop()!)
         XCTAssertEqual(1, stack.count)
-        XCTAssertEqual(1, stack.peek()!)
+        XCTAssertEqual(1, stack.peekAtTop()!)
+        XCTAssertEqual(1, stack.peekAtBottom()!)
+        XCTAssertNil(stack.peek(at: 1))
 
         XCTAssertEqual(1, stack.pop()!)
         XCTAssertEqual(0, stack.count)
-        XCTAssertNil(stack.peek())
+        XCTAssertNil(stack.peekAtTop())
+        XCTAssertNil(stack.peekAtBottom())
 
         XCTAssertNil(stack.pop())
-        XCTAssertNil(stack.peek())
+        XCTAssertNil(stack.peekAtTop())
+        XCTAssertNil(stack.peekAtBottom())
     }
 
     func testPushAndPopStrings() {
@@ -63,22 +75,22 @@ class StackTests: XCTestCase {
 
         stack.push("1")
         XCTAssertEqual(1, stack.count)
-        XCTAssertEqual("1", stack.peek()!)
+        XCTAssertEqual("1", stack.peekAtTop()!)
 
         stack.push("2")
         XCTAssertEqual(2, stack.count)
-        XCTAssertEqual("2", stack.peek()!)
+        XCTAssertEqual("2", stack.peekAtTop()!)
 
         XCTAssertEqual("2", stack.pop()!)
         XCTAssertEqual(1, stack.count)
-        XCTAssertEqual("1", stack.peek()!)
+        XCTAssertEqual("1", stack.peekAtTop()!)
 
         XCTAssertEqual("1", stack.pop()!)
         XCTAssertEqual(0, stack.count)
-        XCTAssertNil(stack.peek())
+        XCTAssertNil(stack.peekAtTop())
 
         XCTAssertNil(stack.pop())
-        XCTAssertNil(stack.peek())
+        XCTAssertNil(stack.peekAtTop())
     }
 
     func testForEach() {

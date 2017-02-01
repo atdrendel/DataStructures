@@ -13,8 +13,17 @@ public struct Stack<A> {
         _array.append(element)
     }
 
-    public func peek() -> A? {
-        return _array.last
+    public func peekAtTop() -> A? {
+        return peek(at: _array.count - 1)
+    }
+
+    public func peekAtBottom() -> A? {
+        return peek(at: 0)
+    }
+
+    public func peek(at index: Int) -> A? {
+        guard index >= 0 && index < _array.count else { return nil }
+        return _array[index]
     }
 
     @discardableResult public mutating func pop() -> A? {
