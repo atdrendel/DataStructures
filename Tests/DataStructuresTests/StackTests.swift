@@ -30,12 +30,37 @@ class StackTests: XCTestCase {
 
     func testInitWithElement() {
         let value = 123
-        let stack = Stack(value)
+        let stack = Stack(element: value)
         XCTAssertNotNil(stack)
         XCTAssertEqual(1, stack.count)
         XCTAssertEqual(value, stack.peekAtTop())
         XCTAssertEqual(value, stack.peekAtBottom())
         XCTAssertEqual(value, stack.peek(at: 0))
+    }
+
+    func testInitWithArray() {
+        let array = [1, 2, 3]
+        var stack = Stack(array: array)
+        XCTAssertNotNil(stack)
+        XCTAssertEqual(3, stack.count)
+        XCTAssertEqual(array[2], stack.peekAtTop())
+        XCTAssertEqual(array[1], stack.peek(at: 1))
+        XCTAssertEqual(array[0], stack.peekAtBottom())
+
+        XCTAssertEqual(array[2], stack.pop())
+    }
+
+    func testArrayValue() {
+        let array = [1, 2, 3]
+
+        var stack = Stack(array: array)
+        XCTAssertEqual(array, stack.arrayValue)
+
+        stack.pop()
+        XCTAssertEqual([1, 2], stack.arrayValue)
+
+        stack.push(4)
+        XCTAssertEqual([1, 2, 4], stack.arrayValue)
     }
 
     func testPushAndPopInts() {

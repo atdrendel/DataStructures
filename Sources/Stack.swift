@@ -3,10 +3,16 @@ public struct Stack<A> {
 
     public init() { }
 
-    public init(_ element: A) {
-        push(element)
+    public init(element: A) {
+        self.init(array: [element])
     }
 
+    public init(array: Array<A>) {
+        _array = array
+    }
+
+    public var arrayValue: Array<A> { return _array }
+    
     public var count: Int { return _array.count }
 
     public mutating func push(_ element: A) {
