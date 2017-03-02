@@ -37,6 +37,44 @@
                BlueprintName = "DataStructuresTests"
                ReferencedContainer = "container:DataStructures.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "OrderedSetTests/testArrayAccessPerformance()">
+               </Test>
+               <Test
+                  Identifier = "OrderedSetTests/testArrayAppendPerformance()">
+               </Test>
+               <Test
+                  Identifier = "OrderedSetTests/testArrayPrependPerformance()">
+               </Test>
+               <Test
+                  Identifier = "OrderedSetTests/testArrayRemovePerformance()">
+               </Test>
+               <Test
+                  Identifier = "OrderedSetTests/testNSOrderedSetAccessPerformance()">
+               </Test>
+               <Test
+                  Identifier = "OrderedSetTests/testNSOrderedSetAppendPerformance()">
+               </Test>
+               <Test
+                  Identifier = "OrderedSetTests/testNSOrderedSetPrependPerformance()">
+               </Test>
+               <Test
+                  Identifier = "OrderedSetTests/testNSOrderedSetRemovePerformance()">
+               </Test>
+               <Test
+                  Identifier = "OrderedSetTests/testOrderedSetAccessPerformance()">
+               </Test>
+               <Test
+                  Identifier = "OrderedSetTests/testOrderedSetAppendPerformance()">
+               </Test>
+               <Test
+                  Identifier = "OrderedSetTests/testOrderedSetPrependPerformance()">
+               </Test>
+               <Test
+                  Identifier = "OrderedSetTests/testOrderedSetRemovePerformance()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
       <AdditionalOptions>
