@@ -100,11 +100,11 @@ extension RedBlackTree {
         }
     }
 
-//      Bz             Bz           Bx            Bx
-//     /  \           / \          /  \          /  \
-//    Ry   d         Rx  d        a    Rz       a    Ry
-//    / \            / \              / \          /  \
-//   Rx  c          a   Ry           Ry  d        b    Rz
+//      Bz             Bz           Bx            Bx                  Ry
+//     /  \           / \          /  \          /  \               /    \
+//    Ry   d         Rx  d        a    Rz       a    Ry            Bx     Bz
+//    / \            / \              / \          /  \      ==>  / \    /  \
+//   Rx  c          a   Ry           Ry  d        b    Rz        a   b  c    d
 //   / \               / \          / \                / \
 //  a   b             b   c        b   c              c   d
     fileprivate func _balance(_ tree: RedBlackTree<Element>) -> RedBlackTree<Element> {
