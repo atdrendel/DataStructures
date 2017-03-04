@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		575F4E1D1E679D1C00D070E1 /* OrderedSetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575F4E1C1E679D1C00D070E1 /* OrderedSetTests.swift */; };
 		575F4E1F1E679D8100D070E1 /* OrderedSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 575F4E1E1E679D8100D070E1 /* OrderedSet.swift */; };
+		577D15681E6B63F500014044 /* RedBlackTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577D15671E6B63F500014044 /* RedBlackTree.swift */; };
+		577D156A1E6B73DA00014044 /* RedBlackTreeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 577D15691E6B73DA00014044 /* RedBlackTreeTests.swift */; };
 		57EB6DB81E16FED200E68D16 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EB6DB71E16FED200E68D16 /* Stack.swift */; };
 		OBJ_28 /* StackTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* StackTests.swift */; };
 		OBJ_30 /* DataStructures.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* DataStructures.framework */; };
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		575F4E1C1E679D1C00D070E1 /* OrderedSetTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedSetTests.swift; sourceTree = "<group>"; };
 		575F4E1E1E679D8100D070E1 /* OrderedSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderedSet.swift; sourceTree = "<group>"; };
+		577D15671E6B63F500014044 /* RedBlackTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedBlackTree.swift; sourceTree = "<group>"; };
+		577D15691E6B73DA00014044 /* RedBlackTreeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedBlackTreeTests.swift; sourceTree = "<group>"; };
 		57EB6DB71E16FED200E68D16 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		OBJ_12 /* StackTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackTests.swift; sourceTree = "<group>"; };
 		OBJ_14 /* DataStructures.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DataStructures.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				575F4E1C1E679D1C00D070E1 /* OrderedSetTests.swift */,
+				577D15691E6B73DA00014044 /* RedBlackTreeTests.swift */,
 				OBJ_12 /* StackTests.swift */,
 			);
 			name = DataStructuresTests;
@@ -102,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				575F4E1E1E679D8100D070E1 /* OrderedSet.swift */,
+				577D15671E6B63F500014044 /* RedBlackTree.swift */,
 				57EB6DB71E16FED200E68D16 /* Stack.swift */,
 			);
 			name = DataStructures;
@@ -182,6 +188,7 @@
 			files = (
 				575F4E1F1E679D8100D070E1 /* OrderedSet.swift in Sources */,
 				57EB6DB81E16FED200E68D16 /* Stack.swift in Sources */,
+				577D15681E6B63F500014044 /* RedBlackTree.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +197,7 @@
 			buildActionMask = 0;
 			files = (
 				575F4E1D1E679D1C00D070E1 /* OrderedSetTests.swift in Sources */,
+				577D156A1E6B73DA00014044 /* RedBlackTreeTests.swift in Sources */,
 				OBJ_28 /* StackTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
