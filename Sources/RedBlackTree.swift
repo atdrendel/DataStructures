@@ -1,5 +1,9 @@
 // Adapted from "A persistent tree using indirect enums in Swift" at
 // https://airspeedvelocity.net/2015/07/22/a-persistent-tree-using-indirect-enums-in-swift/
+//
+// Also, certain ideas were taken from Matt Might's essays on purely functional red-black trees,
+// which built upon Chris Okasaki's purely functional red-black trees.
+// http://matt.might.net/articles/red-black-delete/
 
 import Foundation
 
@@ -109,42 +113,40 @@ extension RedBlackTree {
 //   a   b             b   c        b   c              c   d
     fileprivate func _balance(_ tree: RedBlackTree<Element>) -> RedBlackTree<Element> {
         switch tree {
-
-        case let .node(.black, .node(.red, .node(.red, lll, lle, llr), le, lr), e, r):
+        case let .node(.black, .node(.red, .node(.red, a, x, b), y, c), z, d):
             return .node(
                 color: .red,
-                left: .node(color: .black, left: lll, element: lle, right: llr),
-                element: le,
-                right: .node(color: .black, left: lr, element: e, right: r)
+                left: .node(color: .black, left: a, element: x, right: b),
+                element: y,
+                right: .node(color: .black, left: c, element: z, right: d)
             )
 
-        case let .node(.black, .node(.red, ll, le, .node(.red, lrl, lre, lrr)), e, r):
+        case let .node(.black, .node(.red, a, x, .node(.red, b, y, c)), z, d):
             return .node(
                 color: .red,
-                left: .node(color: .black, left: ll, element: le, right: lrl),
-                element: lre,
-                right: .node(color: .black, left: lrr, element: e, right: r)
+                left: .node(color: .black, left: a, element: x, right: b),
+                element: y,
+                right: .node(color: .black, left: c, element: z, right: d)
             )
 
-        case let .node(.black, l, e, .node(.red, .node(.red, rll, rle, rlr), re, rr)):
+        case let .node(.black, a, x, .node(.red, .node(.red, b, y, c), z, d)):
             return .node(
                 color: .red,
-                left: .node(color: .black, left: l, element: e, right: rll),
-                element: rle,
-                right: .node(color: .black, left: rlr, element: re, right: rr)
+                left: .node(color: .black, left: a, element: x, right: b),
+                element: y,
+                right: .node(color: .black, left: c, element: z, right: d)
             )
 
-        case let .node(.black, l, e, .node(.red, rl, re, .node(.red, rrl, rre, rrr))):
+        case let .node(.black, a, x, .node(.red, b, y, .node(.red, c, z, d))):
             return .node(
                 color: .red,
-                left: .node(color: .black, left: l, element: e, right: rl),
-                element: re,
-                right: .node(color: .black, left: rrl, element: rre, right: rrr)
+                left: .node(color: .black, left: a, element: x, right: b),
+                element: y,
+                right: .node(color: .black, left: c, element: z, right: d)
             )
 
         default:
             return tree
-
         }
     }
 }
