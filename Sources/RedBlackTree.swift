@@ -62,6 +62,11 @@ extension RedBlackTree {
         }
     }
 
+    public func insert<S: Sequence>(contentsOf sequence: S) -> RedBlackTree<Element>
+        where S.Iterator.Element == Element {
+            return sequence.reduce(self) { $0.insert($1) }
+    }
+
     public func contains(_ target: Element) -> Bool {
         switch self {
         case .empty:

@@ -11,6 +11,8 @@ class RedBlackTreeTests: XCTestCase {
             ("testInsertIntegers", testInsertIntegers),
             ("testInsertDuplicateIntegers", testInsertDuplicateIntegers),
             ("testInsertRandomIntegers", testInsertRandomIntegers),
+            ("testInsertContentsOfSequence", testInsertContentsOfSequence),
+            ("testCopyRedBlackTree", testCopyRedBlackTree),
         ]
     }
 
@@ -80,6 +82,24 @@ class RedBlackTreeTests: XCTestCase {
         for (index, integer) in tree.enumerated() {
             XCTAssertEqual(sorted[index], integer)
         }
+    }
+
+    func testInsertContentsOfSequence() {
+        let integers = randomIntegers()
+        let sorted = integers.sorted()
+
+        let start = RedBlackTree<Int>()
+        let tree = start.insert(contentsOf: integers)
+        for (index, integer) in tree.enumerated() {
+            XCTAssertEqual(sorted[index], integer)
+        }
+    }
+
+    func testCopyRedBlackTree() {
+        let first = RedBlackTree(randomIntegers())
+        let second = first.insert(100001)
+        XCTAssertFalse(first.contains(100001))
+        XCTAssertTrue(second.contains(100001))
     }
 }
 
